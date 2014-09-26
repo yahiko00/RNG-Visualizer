@@ -1,0 +1,21 @@
+﻿body
+{
+    font-family: 'Segoe UI', sans-serif
+}
+
+span {
+    font-style: italic
+}
+
+.output {
+  float: left;
+  padding-right: 1em;
+}
+
+#parameters {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 2em;
+  padding-right: 2em;
+}
