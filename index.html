@@ -20,13 +20,13 @@
   <div id="parameters">
     <span>Seed : </span><input type="text" id="seed" /><input type="button" id="seedTime" value="Time" /><br />
     <span>Generator :</span><select id="generator">
-      <option value="-1">Javascript Default</option>
-      <option value="0" selected>Houle's Central Randomizer</option>
-      <option value="1">IBM RANDU</option>
-      <option value="2">C Standard Library</option>
-      <option value="3">Microsoft Windows (until XP)</option>
-      <option value="4">Xorshift</option>
-      <option value="5">Mersenne Twister</option>
+      <option value="javascript">Javascript Default</option>
+      <option value="central" selected>Houle's Central Randomizer</option>
+      <option value="randu">IBM RANDU</option>
+      <option value="clib">C Standard Library</option>
+      <option value="mswin">Microsoft Windows (until XP)</option>
+      <option value="worshift">Xorshift</option>
+      <option value="mersenne">Mersenne Twister</option>
                             </select><br />
     <input type="button" id="visualize" value="Visualize" />
     <input type="button" id="seedVisualize" value="New Seed & Visualize" /><br />

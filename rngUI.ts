@@ -14,7 +14,7 @@ function setSeedTime() {
 function visualize() {
   var timestamp = Date.now();
   var baseSeed = parseInt((<HTMLInputElement>document.getElementById("seed")).value);
-  var rngType = parseInt((<HTMLSelectElement>document.getElementById("generator")).value);
+  var rngType = (<HTMLSelectElement>document.getElementById("generator")).value;
 
   var rng1 = new SeededRNG(baseSeed, rngType);
   var rng2 = new SeededRNG(baseSeed + 1, rngType);
