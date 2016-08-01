@@ -1,5 +1,5 @@
 # RNG-Visualizer
-Pseudo-Random Generator Visualizer
+Pseudo-Random Generator Visualizer in TypeScript
 
 This small application helps you to visualize several PRNG with binary (top) and x/y representations (bottom).
 Available PRNGs are the following:
