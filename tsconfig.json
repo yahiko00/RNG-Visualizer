@@ -8,10 +8,5 @@
         "target": "es5",
         "sourceMap": false,
         "outFile": "app.js"
-    },
-    "exclude": [
-        "node_modules",
-        "assets",
-        "design"
-    ]
+    }
 }
