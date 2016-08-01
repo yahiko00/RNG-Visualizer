@@ -17,53 +17,54 @@ function setSeedTime() {
 } // setSeedTime
 
 function visualize() {
-  let timestamp = Date.now();
-  let baseSeed = parseInt((document.getElementById("seed") as HTMLInputElement).value);
-  let rngType = (document.getElementById("generator") as HTMLSelectElement).value;
+    let timestamp = Date.now();
+    let baseSeed = parseInt((document.getElementById("seed") as HTMLInputElement).value);
+    if (isNaN(baseSeed)) baseSeed = 0;
+    let rngAlgo = (document.getElementById("generator") as HTMLSelectElement).value as RngAlgo;
 
-  let rng1 = new SeededRNG(baseSeed, rngType);
-  let rng2 = new SeededRNG(baseSeed + 1, rngType);
-  let rng3 = new SeededRNG(baseSeed + 2, rngType);
+    let rng1 = new DistributedRNG(baseSeed, rngAlgo);
+    let rng2 = new DistributedRNG(baseSeed + 1, rngAlgo);
+    let rng3 = new DistributedRNG(baseSeed + 2, rngAlgo);
 
-  addLinearOutput("linearOutput1", rng1);
-  addLinearOutput("linearOutput2", rng2);
-  addLinearOutput("linearOutput3", rng3);
+    addLinearOutput("linearOutput1", rng1);
+    addLinearOutput("linearOutput2", rng2);
+    addLinearOutput("linearOutput3", rng3);
 
-  rng1.randomSeed = baseSeed;
-  rng2.randomSeed = baseSeed + 1;
-  rng3.randomSeed = baseSeed + 2;
+    rng1.seed = baseSeed;
+    rng2.seed = baseSeed + 1;
+    rng3.seed = baseSeed + 2;
 
-  addXYOutput("xyOutput1", rng1);
-  addXYOutput("xyOutput2", rng2);
-  addXYOutput("xyOutput3", rng3);
+    addXYOutput("xyOutput1", rng1);
+    addXYOutput("xyOutput2", rng2);
+    addXYOutput("xyOutput3", rng3);
 
-  document.getElementById("elapsedTime")!.innerHTML = (Date.now() - timestamp).toString() + " ms";
+    document.getElementById("elapsedTime")!.innerHTML = (Date.now() - timestamp).toString() + " ms";
 } // visualize
 
 function seedVisualize() {
-  setSeedTime();
-  visualize();
+    setSeedTime();
+    visualize();
 } // seedVisualize
 
-function addLinearOutput(idHTML: string, rng: SeededRNG) {
-  let output = document.getElementById(idHTML);
-
-  if (output) {
-    output.innerHTML = "seed = " + rng.randomSeedInit + "<br />";
-    output.appendChild(linearVisualizer(rng));
-  }
-} // addLinearOutput
-
-function addXYOutput(idHTML: string, rng: SeededRNG) {
+function addLinearOutput(idHTML: string, rng: DistributedRNG) {
     let output = document.getElementById(idHTML);
 
     if (output) {
-        output.innerHTML = "seed = " + rng.randomSeedInit + "<br />";
+            output.innerHTML = "seed = " + rng.seedInit + "<br />";
+            output.appendChild(linearVisualizer(rng));
+    }
+} // addLinearOutput
+
+function addXYOutput(idHTML: string, rng: DistributedRNG) {
+    let output = document.getElementById(idHTML);
+
+    if (output) {
+        output.innerHTML = "seed = " + rng.seedInit + "<br />";
         output.appendChild(xyVisualizer(rng, 3000));
     }
 } // addXYOutput
 
-function linearVisualizer(rng: SeededRNG): HTMLCanvasElement {
+function linearVisualizer(rng: DistributedRNG): HTMLCanvasElement {
     let canvas = document.createElement("canvas");
     canvas.width = 256;
     canvas.height = 256;
@@ -97,7 +98,7 @@ function linearVisualizer(rng: SeededRNG): HTMLCanvasElement {
     return canvas;
 } // linearVisualizer
 
-function xyVisualizer(rng: SeededRNG, points: number): HTMLCanvasElement {
+function xyVisualizer(rng: DistributedRNG, points: number): HTMLCanvasElement {
     let canvas = document.createElement("canvas");
     canvas.width = 256;
     canvas.height = 256;
