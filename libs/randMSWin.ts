@@ -25,6 +25,6 @@ namespace RNGLib {
     }
 }
 
-declare module 'randMSWin' {
+declare module "randMSWin" {
     export = RNGLib.RandMSWin;
 }

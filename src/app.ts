@@ -7,7 +7,7 @@ window.onload = () => {
 
     let visualizeHTML = document.getElementById("visualize");
     if (visualizeHTML) visualizeHTML.addEventListener("click", visualize, false);
-    
+
     let seedVisualizeHTML = document.getElementById("seedVisualize");
     if (seedVisualizeHTML) seedVisualizeHTML.addEventListener("click", seedVisualize, false);
 };
@@ -94,7 +94,7 @@ function linearVisualizer(rng: DistributedRNG): HTMLCanvasElement {
 
         ctx.putImageData(img, 0, 0);
     }
-    
+
     return canvas;
 } // linearVisualizer
 

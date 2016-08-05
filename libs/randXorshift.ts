@@ -40,6 +40,6 @@ namespace RNGLib {
     }
 }
 
-declare module 'randXorshift' {
+declare module "randXorshift" {
     export = RNGLib.RandXorshift;
 }

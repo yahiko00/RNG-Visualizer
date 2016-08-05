@@ -5,7 +5,7 @@ interface SeededRNG {
     seed: number;
 
     rand(): number;
-    reset(seed?: number): void;    
+    reset(seed?: number): void;
 } // SeededRNG
 
 type RngAlgo = "javascript" | "central" | "randu" | "clib" | "mswin" | "xorshift" | "mersenne";
@@ -23,7 +23,7 @@ class DistributedRNG {
 
     get seed(): number {
         if (this.rng) return this.rng.seed;
-        else return 0;        
+        else return 0;
     }
 
     set seed(s: number) {
@@ -38,27 +38,27 @@ class DistributedRNG {
                 break;
             case "central":
                 this.rng = new RNGLib.RandCentral(seed);
-                this._rand = this.rng.rand.bind(this.rng);;
+                this._rand = this.rng.rand.bind(this.rng);
                 break;
             case "randu":
                 this.rng = new RNGLib.RandU(seed);
-                this._rand = this.rng.rand.bind(this.rng);;
+                this._rand = this.rng.rand.bind(this.rng);
                 break;
             case "clib":
                 this.rng = new RNGLib.RandCLib(seed);
-                this._rand = this.rng.rand.bind(this.rng);;
+                this._rand = this.rng.rand.bind(this.rng);
                 break;
             case "mswin":
                 this.rng = new RNGLib.RandMSWin(seed);
-                this._rand = this.rng.rand.bind(this.rng);;
+                this._rand = this.rng.rand.bind(this.rng);
                 break;
             case "xorshift":
                 this.rng = new RNGLib.RandXorshift(seed);
-                this._rand = this.rng.rand.bind(this.rng);;
+                this._rand = this.rng.rand.bind(this.rng);
                 break;
             case "mersenne":
                 this.rng = new RNGLib.RandMersenne(seed);
-                this._rand = this.rng.rand.bind(this.rng);;
+                this._rand = this.rng.rand.bind(this.rng);
                 break;
         } // switch
 

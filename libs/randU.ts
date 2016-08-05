@@ -24,6 +24,6 @@ namespace RNGLib {
     }
 }
 
-declare module 'randU' {
+declare module "randU" {
     export = RNGLib.RandU;
 }

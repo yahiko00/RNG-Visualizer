@@ -16,7 +16,7 @@ namespace RNGLib {
         rand(): number {
             this.seed = (this.seed * 9301 + 49297) % 233280;
             return this.seed / 233280.0;
-        } //rand
+        } // rand
 
         reset(seed?: number): void {
              this.seed = seed ? seed : this.seedInit;
@@ -24,6 +24,6 @@ namespace RNGLib {
     }
 }
 
-declare module 'randCentral' {
+declare module "randCentral" {
     export = RNGLib.RandCentral;
 }

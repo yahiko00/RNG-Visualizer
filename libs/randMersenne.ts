@@ -84,6 +84,6 @@ namespace RNGLib {
     }
 }
 
-declare module 'randMersenne' {
+declare module "randMersenne" {
     export = RNGLib.RandMersenne;
 }

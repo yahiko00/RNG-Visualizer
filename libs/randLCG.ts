@@ -24,6 +24,6 @@ namespace RNGLib {
     }
 }
 
-declare module 'randLCG' {
+declare module "randLCG" {
     export = RNGLib.RandLCG;
 }
